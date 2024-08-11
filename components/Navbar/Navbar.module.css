@@ -1,0 +1,30 @@
+.badge {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.navbar {
+  display: flex;
+  padding: 0 5vw !important;
+  align-items: center;
+}
+
+.navbar::before {
+  display: none;
+}
+
+.logout {
+  display: flex !important;
+  justify-content: flex-end !important;
+  flex: 1 1 100% !important;
+}
+
+@media screen and (max-width: 435px) {
+  .logout {
+    display: flex !important;
+    justify-content: center !important;
+    flex: 1 1 100% !important;
+  }
+  .navbar {
+    padding-inline: 12px !important;
+  }
+}

@@ -1,0 +1,12 @@
+.collapse {
+    display: flex;
+}
+
+.divider {
+    visibility: hidden !important;
+}
+
+.card {
+    width: 90vw;
+}
+
