@@ -6,7 +6,8 @@
   "bin": "./bin/cli.js",
   "engines": {
     "node": "v20.16.0",
-    "pnpm": "10.8.2"
+    "npm": "10.8.2",
+    "pnpm": "9.7.0"
   },
   "scripts": {
     "dev": "next dev",
@@ -46,6 +47,8 @@
   },
   "devDependencies": {
     "@ant-design/nextjs-registry": "^1.0.1",
+    "@reduxjs/toolkit": "^2.2.7",
+    "@types/react-redux": "^7.1.33",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "cz-git": "^1.9.4",
@@ -54,7 +57,10 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "husky": "^9.1.4",
-    "prettier": "^3.3.3"
+    "json-server": "1.0.0-beta.1",
+    "moment": "^2.30.1",
+    "prettier": "^3.3.3",
+    "react-redux": "^9.1.2"
   },
   "config": {
     "commitizen": {

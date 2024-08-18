@@ -1,13 +1,11 @@
 'use client';
 
 import React, { FC } from 'react';
-import { Typography } from 'antd';
+import CreateForm from '@components/CreateForm/CreateForm';
 
 const CreateTreatment: FC = () => (
   <div className="container">
-    <Typography.Title className="title">
-      Тут должна быть форма создания обращения!
-    </Typography.Title>
+    <CreateForm />
   </div>
 );
 

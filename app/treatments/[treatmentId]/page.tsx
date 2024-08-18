@@ -1,12 +1,12 @@
 'use client';
 
 import RestrictedRoute from '@hocs/RestrictedRoute';
-import { Alert, Button } from 'antd';
-import { TTreatment } from '@models/TTreatment';
+import { Alert, Button, Spin } from 'antd';
 import { TreatmentCard } from '@components/TreatmentCard';
-import data from '@_mockdata_/mockdata.json';
+// import data from '@_mockdata_/mockdata.json';
 import { PlusOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/navigation';
+import { useGetTreatmentQuery } from '@store/query/TreatmentQuery/TreatmentQuery';
 
 interface IProps {
   params: {
@@ -17,14 +17,14 @@ interface IProps {
 export default function TreatmentPage({ params }: IProps) {
   const router = useRouter();
   const { treatmentId } = params;
-  const treatmentDetails: TTreatment = data.find(
-    (treatment: TTreatment) => treatment.id === parseInt(treatmentId)
+  const { data: treatmentDetails, isSuccess } = useGetTreatmentQuery(
+    Number(treatmentId)
   );
 
   return (
     <RestrictedRoute>
       <div className="container">
-        <TreatmentCard treatment={treatmentDetails} />
+        {isSuccess ? <TreatmentCard treatment={treatmentDetails} /> : <Spin />}
         <Alert
           className="alert"
           message="У вас остались вопросы? Пожалуйста, создайте новое обращение."

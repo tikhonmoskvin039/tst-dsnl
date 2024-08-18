@@ -2,6 +2,7 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import StoreProvider from '@store/provider/StoreProvider';
 import { Navbar } from '../components/Navbar';
 import { AuthProvider } from '../context/AuthContext';
 
@@ -21,13 +22,15 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body>
-        <AuthProvider>
-          <AntdRegistry>
-            <Navbar />
-            {children}
-            <Analytics />
-          </AntdRegistry>
-        </AuthProvider>
+        <StoreProvider>
+          <AuthProvider>
+            <AntdRegistry>
+              <Navbar />
+              {children}
+              <Analytics />
+            </AntdRegistry>
+          </AuthProvider>
+        </StoreProvider>
       </body>
     </html>
   );

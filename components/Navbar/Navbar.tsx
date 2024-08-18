@@ -38,45 +38,45 @@ export const Navbar: FC = () => {
     },
     isAuth && path !== '/treatments'
       ? {
-          label: 'Обращения',
-          key: '/treatments',
-          icon: <TrademarkCircleFilled />,
-        }
+        label: 'Обращения',
+        key: '/treatments',
+        icon: <TrademarkCircleFilled />,
+      }
       : null,
     isAuth
       ? {
-          label: (
-            <Badge
-              count={15}
-              size="small"
-              offset={[10, -5]}
-              className={styles.badge}
-            >
-              Уведомления
-            </Badge>
-          ),
-          key: '/notifications',
-          icon: <NotificationFilled />,
-        }
+        label: (
+          <Badge
+            count={15}
+            size="small"
+            offset={[10, -5]}
+            className={styles.badge}
+          >
+            Уведомления
+          </Badge>
+        ),
+        key: '/notifications',
+        icon: <NotificationFilled />,
+      }
       : null,
     isAuth
       ? {
-          label: 'Новое обращение',
-          key: '/treatments/create',
-          icon: <PlusSquareOutlined />,
-        }
+        label: 'Новое обращение',
+        key: '/treatments/create',
+        icon: <PlusSquareOutlined />,
+      }
       : null,
     isAuth
       ? {
-          label: 'Выйти',
-          key: '/',
-          icon: <UserOutlined />,
-          className: styles.logout,
-        }
+        label: 'Выйти',
+        key: '/',
+        icon: <UserOutlined />,
+        className: styles.logout,
+      }
       : null,
   ];
 
-  const onClick: MenuProps['onClick'] = (e) => {
+  const onClick: MenuProps['onClick'] = (e: MenuItem) => {
     if (e.key === '/') userLogout();
     if (e.key === 'Itilium') return;
     setCurrent(e.key);
@@ -89,6 +89,7 @@ export const Navbar: FC = () => {
 
   return (
     <Menu
+      key={current}
       className={styles.navbar}
       selectable={false}
       theme="dark"

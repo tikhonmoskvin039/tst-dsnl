@@ -15,7 +15,7 @@ import styles from './TreatmentCard.module.css';
 import { NotificationPlacement } from 'antd/es/notification/interface';
 
 interface IProps {
-  treatment: TTreatment;
+  treatment: Partial<TTreatment>;
 }
 
 export const TreatmentCard: FC<IProps> = ({
@@ -35,7 +35,7 @@ export const TreatmentCard: FC<IProps> = ({
   };
 
   useEffect(() => {
-    if (treatment.isWaitingForAnswer === 'Да') {
+    if (treatment?.isWaitingForAnswer === 'Да') {
       openNotification('top');
     }
   }, []);
@@ -45,31 +45,31 @@ export const TreatmentCard: FC<IProps> = ({
   };
 
   return (
-    <Card key={treatment.id} className={styles.card}>
+    <Card key={treatment?.id} className={styles.card}>
       {contextHolder}
       <Row>
         <Col xs={24} md={12} lg={12}>
           <Typography.Text type="secondary">
-            Обращение {treatment.id} от {treatment.createdAt}
+            Обращение {treatment?.id} от {treatment?.createdAt}
           </Typography.Text>
           <br />
-          <Typography.Text strong>{treatment.theme}</Typography.Text>
+          <Typography.Text strong>{treatment?.theme}</Typography.Text>
           <Divider className={styles.divider} />
-          <Typography.Text italic>{treatment.description}</Typography.Text>
+          <Typography.Text italic>{treatment?.description}</Typography.Text>
           <Divider className={styles.divider} />
         </Col>
         <Col xs={24} md={12} lg={12}>
           <Typography.Text type="secondary">Статус:</Typography.Text>
           <br />
-          <QqCircleFilled /> {treatment.status}
+          <QqCircleFilled /> {treatment?.status}
           <br />
           <br />
           <Typography.Text type="secondary">Крайний срок:</Typography.Text>
           <br />
-          {treatment.deadline}
+          {treatment?.deadline}
           <Divider className={styles.divider} />
           <Typography.Text type="secondary">Решение:</Typography.Text>
-          {treatment.decision}
+          {treatment?.decision}
           <Divider className={styles.divider} />
         </Col>
       </Row>
@@ -90,8 +90,8 @@ export const TreatmentCard: FC<IProps> = ({
           }
           key="1"
         >
-          <p>Сервис обращения: {treatment.service}</p>
-          <p>Содержание: {treatment.serviceContent}</p>
+          <p>Сервис обращения: {treatment?.service}</p>
+          <p>Содержание: {treatment?.serviceContent}</p>
         </Panel>
       </Collapse>
     </Card>
